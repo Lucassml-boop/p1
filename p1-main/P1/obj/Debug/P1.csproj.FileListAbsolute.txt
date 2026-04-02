@@ -1,0 +1,10 @@
+C:\Users\labs\Downloads\p1-main\P1\bin\Debug\P1.exe.config
+C:\Users\labs\Downloads\p1-main\P1\bin\Debug\P1.exe
+C:\Users\labs\Downloads\p1-main\P1\bin\Debug\P1.pdb
+C:\Users\labs\Downloads\p1-main\P1\obj\Debug\P1.csprojAssemblyReference.cache
+C:\Users\labs\Downloads\p1-main\P1\obj\Debug\P1.Form1.resources
+C:\Users\labs\Downloads\p1-main\P1\obj\Debug\P1.Properties.Resources.resources
+C:\Users\labs\Downloads\p1-main\P1\obj\Debug\P1.csproj.GenerateResource.cache
+C:\Users\labs\Downloads\p1-main\P1\obj\Debug\P1.csproj.CoreCompileInputs.cache
+C:\Users\labs\Downloads\p1-main\P1\obj\Debug\P1.exe
+C:\Users\labs\Downloads\p1-main\P1\obj\Debug\P1.pdb
