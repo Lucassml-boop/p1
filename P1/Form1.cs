@@ -30,15 +30,16 @@ namespace P1
         {
             try
             {
-                strconex = "data source=(local);initial catalog=empresa;integrated security=sspi";
+                strconex = "data source=(local);initial catalog=EmpresaDB;integrated security=sspi";
 
                 conexao = new SqlConnection(strconex);
                 conexao.Open();
 
-                strsql = "insert into setores (codsetor, setor, descricao) values ('" + 
-                         txtCodSetor.Text + "','" + txtSetor.Text + "','" + txtDescricao.Text + "')";
-
+                strsql = "INSERT INTO Setores (codsetor, setor, descricao) VALUES (@codsetor, @setor, @descricao)";
                 comando = new SqlCommand(strsql, conexao);
+                comando.Parameters.AddWithValue("@codsetor", txtCodSetor.Text);
+                comando.Parameters.AddWithValue("@setor", txtSetor.Text);
+                comando.Parameters.AddWithValue("@descricao", txtDescricao.Text);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Registro gravado com sucesso.", "Mensagem",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -60,8 +61,11 @@ namespace P1
         private void BtEmpregados_Click(object sender, EventArgs e)
         {
             CadEmpregados formEmpregados = new CadEmpregados();
-            formEmpregados.Show();
+            formEmpregados.FormClosed += (s, args) => this.Show();
             this.Hide();
+            formEmpregados.Show();
+            formEmpregados.BringToFront();
+            formEmpregados.Activate();
         }
     }
 }
