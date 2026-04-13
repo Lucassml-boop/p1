@@ -71,8 +71,11 @@ namespace P1
         private void BtEmpregados_Click(object sender, EventArgs e)
         {
             CadEmpregados formEmpregados = new CadEmpregados();
-            formEmpregados.Show();
+            formEmpregados.FormClosed += (s, args) => this.Show();
             this.Hide();
+            formEmpregados.Show();
+            formEmpregados.BringToFront();
+            formEmpregados.Activate();
         }
     }
 }

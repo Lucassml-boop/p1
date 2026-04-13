@@ -20,14 +20,14 @@ namespace P1
 
         private void CadEmpregados_Load(object sender, EventArgs e)
         {
-            strconex = "data source=(local);initial catalog=empresa;integrated security=sspi";
+            strconex = "data source=(local);initial catalog=EmpresaDB;integrated security=sspi";
             conexao = new SqlConnection(strconex);
             
             try
             {
                 conexao.Open();
                 tblsetores = new DataTable();
-                strsql = "select * from setores";
+                strsql = "SELECT codsetor, setor FROM setores";
                 adapter = new SqlDataAdapter(strsql, conexao);
                 adapter.Fill(tblsetores);
 
@@ -61,15 +61,18 @@ namespace P1
         {
             try
             {
-                strconex = "data source=(local);initial catalog=empresa;integrated security=sspi";
+                strconex = "data source=(local);initial catalog=EmpresaDB;integrated security=sspi";
                 conexao = new SqlConnection(strconex);
                 conexao.Open();
 
-                strsql = "insert into empregados (codempregado, empregado, bairro, cidade, codsetor) " +
-                         "values ('" + txtCodEmpregado.Text + "','" + txtEmpregado.Text + "','" + 
-                         txtBairro.Text + "','" + txtCidade.Text + "','" + cboCodSetor.SelectedValue + "')";
-
+                strsql = "INSERT INTO empregados (codempregados, empregado, bairro, cidade, codsetor) " +
+                         "VALUES (@codempregados, @empregado, @bairro, @cidade, @codsetor)";
                 comando = new SqlCommand(strsql, conexao);
+                comando.Parameters.AddWithValue("@codempregados", txtCodEmpregado.Text);
+                comando.Parameters.AddWithValue("@empregado", txtEmpregado.Text);
+                comando.Parameters.AddWithValue("@bairro", txtBairro.Text);
+                comando.Parameters.AddWithValue("@cidade", txtCidade.Text);
+                comando.Parameters.AddWithValue("@codsetor", cboCodSetor.SelectedValue);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Registro gravado com sucesso.", "Mensagem",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
