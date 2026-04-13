@@ -3,11 +3,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Windows.Forms;
-
 namespace P1
 {
     public partial class Form1 : Form
@@ -70,7 +65,9 @@ namespace P1
         
         private void BtEmpregados_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tela de empregados ainda não implementada.");
+            CadEmpregados formEmpregados = new CadEmpregados();
+            formEmpregados.Show();
+            this.Hide();
         }
     }
 }
